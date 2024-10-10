@@ -1,0 +1,24 @@
+Bueno inicialmente yo utilicé una estructura (struct) llamada Empleado para almacenar la información más importante de cada empleado. Esta estructura incluye el espacio para la cédula, el nombre, el tipo de empleado (operario, técnico, profesional), las horas laboradas y el precio por hora.
+Tomé la decisión de utilizarla porque es bastante simple y clara, ya que estas estructuras permiten agrupar datos relacionados en una sola unidad y hace que sea más fácil poder manejar la información de los empleados, también deja manejar múltiples empleados de manera ordenada
+
+Impacto de los Aumentos Salariales
+Análisis: Los aumentos salariales aplicados varían según el tipo de empleado:
+Operarios: 15%
+Técnicos: 10%
+Profesionales: 5%
+
+Impacto en el Presupuesto:
+
+Incremento de Costos: La implementación de estos aumentos impacta directamente el presupuesto de la empresa, incrementando los gastos de nómina. Por ejemplo, si una empresa tiene un alto número de operarios, el aumento del 15% tendrá un efecto más significativo en el presupuesto total que los aumentos para técnicos o profesionales, pero bueno a como los aumentos representan un costo, también pueden mejorar la satisfacción y la retención de empleados, lo que podría reducir costos a largo plazo relacionados con la rotación de personal y la capacitación de nuevos empleados.
+
+c. Optimización del Programa
+Propuestas de Mejora:
+Dividir el programa en funciones más pequeñas que manejen tareas específicas, como entrada de datos, cálculos y salida de resultados, puede mejorar la legibilidad y mantenimiento del código. También validar datos para asegurarse de que los datos ingresados sean correctos (por ejemplo, que el tipo de empleado esté entre 1 y 3) puede prevenir errores y mejorar la robustez del programa.
+
+d. Reflexión sobre la Gestión de Datos
+Importancia de las Deducciones de Ley: Las deducciones de ley, como la CCSS, son sumamente importantes en el cálculo del salario neto. Estas deducciones garantizan que los empleados contribuyan a un sistema de seguridad social que les brinda beneficios como atención médica y pensiones.
+
+Impacto en la Satisfacción y Retención:
+Ofrece mayor confianza y transparencia ya que un cálculo claro y justo de las deducciones salariales puede aumentar la confianza de los empleados en la administración de la empresa.
+Beneficios Sociales: La percepción de que se está contribuyendo a un sistema que asegura su bienestar futuro puede aumentar la satisfacción laboral y la lealtad hacia la empresa.
+Efecto en el Presupuesto: Las deducciones también impactan el costo total para la empresa, que debe equilibrar la inversión en los empleados con la necesidad de mantener un presupuesto saludable.
