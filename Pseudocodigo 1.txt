@@ -1,0 +1,69 @@
+INICIO
+
+    DEFINIR Estructura Empleado
+        cadena cedula[20]
+        cadena nombre[50]
+        entero tipo
+        decimal horasLaboradas
+        decimal precioHora
+    FIN Estructura
+
+    DEFINIR Arreglo empleados[100] COMO Empleado
+    entero contador <- 0
+    caracter continuar
+
+    HACER
+        IMPRIMIR "Ingrese la cedula del empleado: "
+        LEER empleados[contador].cedula
+
+        IMPRIMIR "Ingrese el nombre completo del empleado: "
+        LEER empleados[contador].nombre
+
+        IMPRIMIR "Ingrese el tipo de empleado (1: Operario, 2: Tecnico, 3: Profesional): "
+        LEER empleados[contador].tipo
+
+        IMPRIMIR "Ingrese la cantidad de horas laboradas: "
+        LEER empleados[contador].horasLaboradas
+
+        IMPRIMIR "Ingrese el precio por hora: "
+        LEER empleados[contador].precioHora
+
+        contador <- contador + 1
+
+        IMPRIMIR "¿Quiere ingresar otro empleado? (s/n): "
+        continuar <- LEER caracter
+
+    MIENTRAS continuar == 's' O continuar == 'S'
+
+    PARA i DESDE 0 HASTA contador - 1 HACER
+        decimal salarioOrdinario <- empleados[i].horasLaboradas * empleados[i].precioHora
+        decimal aumento <- 0
+
+        SEGÚN empleados[i].tipo HACER
+            CASO 1:
+                aumento <- salarioOrdinario * 0.15
+                ROMPER
+            CASO 2:
+                aumento <- salarioOrdinario * 0.10
+                ROMPER
+            CASO 3:
+                aumento <- salarioOrdinario * 0.05
+                ROMPER
+        FIN SEGÚN
+
+        decimal salarioBruto <- salarioOrdinario + aumento
+        decimal deduccionCCSS <- salarioBruto * 0.0917
+        decimal salarioNeto <- salarioBruto - deduccionCCSS
+
+        IMPRIMIR "Empleado ", i + 1, ":"
+        IMPRIMIR "Cedula: ", empleados[i].cedula
+        IMPRIMIR "Nombre: ", empleados[i].nombre
+        IMPRIMIR "Salario Ordinario: ", salarioOrdinario
+        IMPRIMIR "Aumento: ", aumento
+        IMPRIMIR "Salario Bruto: ", salarioBruto
+        IMPRIMIR "Deducción CCSS: ", deduccionCCSS
+        IMPRIMIR "Salario Neto: ", salarioNeto
+
+    FIN PARA
+
+FIN

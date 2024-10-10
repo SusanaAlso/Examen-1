@@ -1,0 +1,76 @@
+INICIO
+
+    DEFINIR Estructura Venta
+        entero numeroFactura
+        cadena cedula[20]
+        cadena nombre[50]
+        entero localidad
+        entero cantidadEntradas
+    FIN Estructura
+
+    DEFINIR Arreglo ventas[100] COMO Venta
+    entero contador <- 0
+    caracter seguir
+    entero entradasLocalidad[3] <- {0, 0, 0} 
+    decimal acumuladoLocalidad[3] <- {0.0, 0.0, 0.0} 
+    decimal precios[3] <- {10500.0, 20500.0, 25500.0} 
+
+    HACER
+        IMPRIMIR "Ingrese el numero de factura: "
+        LEER ventas[contador].numeroFactura
+
+        IMPRIMIR "Ingrese la cedula del comprador: "
+        LEER ventas[contador].cedula
+
+        IMPRIMIR "Ingrese el nombre del comprador: "
+        LEER ventas[contador].nombre
+
+        IMPRIMIR "Seleccione la localidad (1: Sol Norte/Sur, 2: Sombra Este/Oeste, 3: Preferencial): "
+        LEER ventas[contador].localidad
+        
+        MIENTRAS ventas[contador].localidad < 1 O ventas[contador].localidad > 3 HACER
+            IMPRIMIR "Localidad no válida. Intente de nuevo: "
+            LEER ventas[contador].localidad
+        FIN MIENTRAS
+      
+        IMPRIMIR "Ingrese la cantidad de entradas (máximo 4): "
+        LEER ventas[contador].cantidadEntradas
+    
+        MIENTRAS ventas[contador].cantidadEntradas < 1 O ventas[contador].cantidadEntradas > 4 HACER
+            IMPRIMIR "Cantidad no válida. Ingrese de nuevo (máximo 4): "
+            LEER ventas[contador].cantidadEntradas
+        FIN MIENTRAS
+
+        decimal precioEntrada <- precios[ventas[contador].localidad - 1]
+        decimal subtotal <- ventas[contador].cantidadEntradas * precioEntrada
+        decimal cargos <- 1000.0 * ventas[contador].cantidadEntradas
+        decimal totalPagar <- subtotal + cargos
+
+        entradasLocalidad[ventas[contador].localidad - 1] <- entradasLocalidad[ventas[contador].localidad - 1] + ventas[contador].cantidadEntradas
+        acumuladoLocalidad[ventas[contador].localidad - 1] <- acumuladoLocalidad[ventas[contador].localidad - 1] + subtotal
+
+        IMPRIMIR "Venta:"
+        IMPRIMIR "Numero de factura: ", ventas[contador].numeroFactura
+        IMPRIMIR "Cedula: ", ventas[contador].cedula
+        IMPRIMIR "Nombre del comprador: ", ventas[contador].nombre
+        IMPRIMIR "Localidad: ", ventas[contador].localidad
+        IMPRIMIR "Cantidad de entradas: ", ventas[contador].cantidadEntradas
+        IMPRIMIR "Subtotal: ", subtotal, " colones"
+        IMPRIMIR "Cargos por servicios: ", cargos, " colones"
+        IMPRIMIR "Total a pagar: ", totalPagar, " colones"
+
+        contador <- contador + 1
+
+        IMPRIMIR "¿Quiere ingresar otra venta? (s/n): "
+        seguir <- LEER caracter
+
+    MIENTRAS seguir == 's' O seguir == 'S'
+
+    IMPRIMIR "Cantidad de entradas en la localidad Sol Norte/Sur: ", entradasLocalidad[0]
+    IMPRIMIR "Acumulado de dinero en la localidad Sol Norte/Sur: ", acumuladoLocalidad[0], " colones"
+    IMPRIMIR "Cantidad de entradas en la localidad Sombra Este/Oeste: ", entradasLocalidad[1]
+    IMPRIMIR "Acumulado de dinero en la localidad Sombra Este/Oeste: ", acumuladoLocalidad[1], " colones"
+    IMPRIMIR "Cantidad de entradas en la localidad Preferencial: ", entradasLocalidad[2]
+    IMPRIMIR "Acumulado de dinero en la localidad Preferencial: ", acumuladoLocalidad[2], " colones"
+
+FIN
